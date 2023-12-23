@@ -9,7 +9,9 @@ runs:
       id: yarn-config
       shell: bash
       run: |
-        echo "CACHE_FOLDER=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+        cache_folder="$(YARN_IGNORE_NODE=1 yarn config get cacheFolder)"
+        echo "CACHE_FOLDER=$cache_folder"
+        echo "CACHE_FOLDER=$cache_folder" >> $GITHUB_OUTPUT
 
     - name: Restore yarn cache
       uses: actions/cache@v3
@@ -30,7 +32,7 @@ runs:
     - name: Install dependencies
       shell: bash
       run: |
-        yarn install --immutable --inline-builds
+        YARN_IGNORE_NODE=1 yarn install --immutable --inline-builds
       env:
         YARN_ENABLE_GLOBAL_CACHE: 'false'
         YARN_INSTALL_STATE_PATH: .yarn/ci-cache/install-state.gz # Very small speedup when lock does not change
