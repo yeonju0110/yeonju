@@ -14,8 +14,10 @@
   "dependencies": {
     "@yeonju/ui": "workspace:^",
     "next": "14.0.4",
+    "notion-client": "^6.16.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-notion-x": "^6.16.0"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -24,6 +26,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "gh-pages": "^6.1.1",
+    "notion-types": "^6.16.0",
     "typescript": "^5"
   }
 }
