@@ -83,6 +83,13 @@ module.exports = {
     'import/order': [
       'error',
       {
+        pathGroups: [
+          {
+            pattern: '@/**',
+            group: 'external',
+            position: 'after',
+          },
+        ],
         groups: [
           'builtin',
           'external',
