@@ -12,9 +12,12 @@
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "dependencies": {
+    "@notionhq/client": "^2.2.14",
     "@yeonju/ui": "workspace:^",
     "next": "14.0.4",
     "notion-client": "^6.16.0",
+    "notion-utils": "^6.16.0",
+    "prismjs": "^1.29.0",
     "react": "^18",
     "react-dom": "^18",
     "react-notion-x": "^6.16.0"
