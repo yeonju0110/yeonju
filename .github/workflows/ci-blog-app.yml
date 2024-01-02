@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
     steps:
       - uses: actions/checkout@v3
 
@@ -27,4 +27,17 @@ jobs:
       - name: Build web-app
         working-directory: apps/blog
         run: |
-          yarn build
+          YARN_IGNORE_NODE=1 yarn build
+
+      - uses: fregante/setup-git-user@v2
+
+      - name: Setup credentials to access private repositories
+        run: |
+          git config --global user.email "yjj0287@gmail.com"
+          git config --global user.name "Yeonju Jo"
+          git config --global url.https://${{ secrets.PAT }}@github.com/.insteadOf https://github.com/
+
+      - name: Deploy web-app
+        working-directory: apps/blog
+        run: |
+          YARN_IGNORE_NODE=1 yarn deploy
