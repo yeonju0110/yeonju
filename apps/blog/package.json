@@ -14,6 +14,7 @@
   "dependencies": {
     "@notionhq/client": "^2.2.14",
     "@yeonju/ui": "workspace:^",
+    "clsx": "^2.1.0",
     "dayjs": "^1.11.10",
     "next": "14.0.4",
     "normalize.css": "^8.0.1",
@@ -25,6 +26,7 @@
     "react-notion-x": "^6.16.0"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
