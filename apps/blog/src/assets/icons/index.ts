@@ -1,0 +1,5 @@
+export { default as IconBar } from './IconBar.svg'
+export { default as IconCat } from './IconCat.svg'
+export { default as IconGithub } from './IconGithub.svg'
+export { default as IconMail } from './IconMail.svg'
+export { default as IconStar } from './IconStar.svg'
