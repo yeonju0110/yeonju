@@ -5,7 +5,8 @@
     "g:typecheck": "yarn workspaces foreach -Apv run typecheck",
     "commit": "npx cz-customizable",
     "postinstall": "husky install",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "blog": "cd apps/blog && yarn dev"
   },
   "workspaces": [
     "apps/*",
