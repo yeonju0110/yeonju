@@ -24,6 +24,11 @@ jobs:
       - name: 📥 Monorepo install
         uses: ./.github/actions/yarn-install
 
+      - name: create dotenv
+        run: |
+          touch ./apps/blog/.env
+          echo "NOTION_KEY=${{ secrets.NOTION_KEY }}" >> ./apps/blog/.env
+
       - name: Build web-app
         working-directory: apps/blog
         run: |
