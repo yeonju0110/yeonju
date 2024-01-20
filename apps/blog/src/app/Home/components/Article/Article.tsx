@@ -4,6 +4,7 @@ import { PropsWithChildren } from 'react'
 import { Card } from '@/apis/notion'
 import Image from '@/components/Image/Image'
 import size from '@/constants/size'
+import { isLocal } from '@/libs/config'
 import Badge from '../Badge/Badge'
 import styles from './Article.module.scss'
 
@@ -12,10 +13,17 @@ interface ArticleProps {
 }
 
 const Article = ({ article }: ArticleProps) => {
+  const getPageLink = (id: string) => {
+    if (isLocal) {
+      return `/id`
+    }
+    return `/yeonju/${id}`
+  }
+
   return (
     <Link
       key={article.id}
-      href={`/${article.id}`}
+      href={getPageLink(article.id)}
       className={styles.article}
       style={{ width: `${size.article_width}px` }}
     >
