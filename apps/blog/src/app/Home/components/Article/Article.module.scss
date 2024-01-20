@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+
+  padding: 0 10px 80px;
+}
+
+.article {
+  position: relative;
+
+  .thumbnail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    overflow: hidden;
+
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+
+    border-radius: 12px;
+
+    box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(40px);
+
+    transition: transform 0.3s ease-out;
+  }
+
+  .thumbnail:hover {
+    transform: translateY(-10px);
+  }
+
+  .title {
+    padding: 0.8rem 0 0.6rem;
+  }
+
+  .date {
+    font-size: small;
+    color: #a0a0a0ff;
+  }
+}
