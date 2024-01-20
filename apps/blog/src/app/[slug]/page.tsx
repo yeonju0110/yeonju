@@ -1,5 +1,5 @@
 import { ExtendedRecordMap } from 'notion-types'
-import { fetchPageData } from '@/apis/notion'
+import { fetchDatabase, fetchPageData } from '@/apis/notion'
 import NotionPage from '@/app/[slug]/NotionPage/NotionPage'
 
 type Props = {
@@ -16,10 +16,10 @@ export default async function Page({ params }: Props) {
   )
 }
 
-// export async function generateStaticParams() {
-//   const eventIds = await fetchEventIds();
+export async function generateStaticParams() {
+  const eventIds = await fetchDatabase()
 
-//   return eventIds.eventIdList.map((event) => ({
-//     slug: event.toString(),
-//   }));
-// }
+  return (eventIds || []).map(event => ({
+    slug: event.id,
+  }))
+}
