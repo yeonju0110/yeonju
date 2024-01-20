@@ -1,0 +1,33 @@
+.container {
+  z-index: 10;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: $color-bg 4d;
+  backdrop-filter: blur(20px);
+
+  padding: 10px 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .subTitle {
+    padding-top: 8px;
+  }
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
