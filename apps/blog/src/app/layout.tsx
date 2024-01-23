@@ -1,26 +1,28 @@
 import '@/styles/main.scss'
 
 import type { Metadata } from 'next'
-import { Vibur } from 'next/font/google'
+import { Noto_Serif } from 'next/font/google'
 import localFont from 'next/font/local'
 import 'react-notion-x/src/styles.css'
 import 'prismjs/themes/prism-tomorrow.css'
 import Footer from '@/components/Footer/Footer'
+import Header from '@/components/Header/Header'
 
-const vibur = Vibur({
+const notoSerif = Noto_Serif({
   weight: '400',
   subsets: ['latin'],
-  variable: '--font-vibur',
+  variable: '--font-noto-serif',
+  display: 'block',
 })
 
 const pretendard = localFont({
   src: './fonts/PretendardVariable.woff2',
   variable: '--font-pretendard',
-  display: 'fallback',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
-  title: 'Julog',
+  title: 'The Yeonju',
   description: '연주의 기술 블로그',
 }
 
@@ -30,8 +32,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ko">
-      <body className={`${pretendard.className} ${vibur.className}`}>
+    <html lang="ko" className={`${notoSerif.variable} ${pretendard.variable}`}>
+      <body>
+        <Header />
         {children}
         <Footer />
       </body>

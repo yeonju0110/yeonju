@@ -3,7 +3,6 @@
 import dynamic from 'next/dynamic'
 import { ExtendedRecordMap } from 'notion-types'
 import { NotionRenderer } from 'react-notion-x'
-import Header from '../../../components/Header/Header'
 import Head from './components/Head'
 import useNotionPage from './hooks/useNotionPage'
 import styles from './NotionPage.module.scss'
@@ -34,8 +33,6 @@ export default function NotionPage({ recordMap, currentPageId }: Props) {
 
   return (
     <div className={styles.container}>
-      <Header />
-
       <NotionRenderer
         pageHeader={
           <Head

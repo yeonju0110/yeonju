@@ -1,5 +1,5 @@
 const colors = {
-  purple: '#8f6ce8',
+  silver: '#c0c0c0',
 }
 
 export default colors

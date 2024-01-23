@@ -1,5 +1,4 @@
 import { fetchDatabase } from '@/apis/notion'
-import Header from '@/components/Header/Header'
 import Article from './components/Article/Article'
 import Logo from './components/Logo/Logo'
 
@@ -8,7 +7,6 @@ export default async function HomePage() {
 
   return (
     <>
-      <Header />
       <Logo />
 
       <main>
