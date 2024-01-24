@@ -7,6 +7,7 @@ import 'react-notion-x/src/styles.css'
 import 'prismjs/themes/prism-tomorrow.css'
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
+import Favicon from '../../public/favicon.ico'
 
 const notoSerif = Noto_Serif({
   weight: '400',
@@ -24,6 +25,7 @@ const pretendard = localFont({
 export const metadata: Metadata = {
   title: 'The Yeonju',
   description: '연주의 기술 블로그',
+  icons: [{ rel: 'icon', url: Favicon.src }],
 }
 
 export default function RootLayout({
