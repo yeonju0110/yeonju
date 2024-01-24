@@ -15,7 +15,7 @@ interface ArticleProps {
 const Article = ({ article }: ArticleProps) => {
   const getPageLink = (id: string) => {
     if (isLocal) {
-      return `/id`
+      return `/${id}`
     }
     return `/yeonju/${id}`
   }
