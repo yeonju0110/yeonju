@@ -5,6 +5,7 @@ import { Card } from '@/apis/notion'
 import Image from '@/components/Image/Image'
 import size from '@/constants/size'
 import { isLocal } from '@/libs/config'
+import { getPageCover } from '@/utils/Notion'
 import Badge from '../Badge/Badge'
 import styles from './Article.module.scss'
 
@@ -13,6 +14,14 @@ interface ArticleProps {
 }
 
 const Article = ({ article }: ArticleProps) => {
+  const {
+    id,
+    title,
+    created_time: createdTime,
+    thumbnail_image: thumbnailImage,
+    tags,
+  } = article
+
   const getPageLink = (id: string) => {
     if (isLocal) {
       return `/${id}`
@@ -22,8 +31,8 @@ const Article = ({ article }: ArticleProps) => {
 
   return (
     <Link
-      key={article.id}
-      href={getPageLink(article.id)}
+      key={id}
+      href={getPageLink(id)}
       className={styles.article}
       style={{ width: `${size.article_width}px` }}
     >
@@ -31,18 +40,16 @@ const Article = ({ article }: ArticleProps) => {
         className={styles.thumbnail}
         type="remote"
         alt="thumbnail_image"
-        src={article.thumbnail_image}
+        src={getPageCover({ id, url: thumbnailImage })}
         width={size.article_width}
         height={size.article_height}
       />
 
-      <p className={styles.title}>{article.title}</p>
-      <p className={styles.date}>
-        {dayjs(article.created_time).format('YYYY-MM-DD')}
-      </p>
+      <p className={styles.title}>{title}</p>
+      <p className={styles.date}>{dayjs(createdTime).format('YYYY-MM-DD')}</p>
 
       <Badge.Container>
-        {article.tags.map(tag => (
+        {tags.map(tag => (
           <Badge key={tag.id} content={tag.name} />
         ))}
       </Badge.Container>
