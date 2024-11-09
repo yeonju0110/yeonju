@@ -11,7 +11,14 @@ export default async function HomePage() {
 
       <main>
         <Article.Container>
-          {cards && cards.map(card => <Article key={card.id} article={card} />)}
+          {cards &&
+            cards
+              .sort(
+                (a, b) =>
+                  new Date(b.created_time).getTime() -
+                  new Date(a.created_time).getTime()
+              )
+              .map(card => <Article key={card.id} article={card} />)}
         </Article.Container>
       </main>
     </>

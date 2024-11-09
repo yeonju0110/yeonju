@@ -4,7 +4,10 @@
   display: flex;
   justify-content: center;
 
-  padding: 7rem 0;
+  padding: 5rem 0 5rem;
+  @include mobile {
+    padding: 5rem 0 4rem;
+  }
 
   .logo {
     position: relative;
@@ -25,16 +28,13 @@
   }
 
   .title {
-    color: $color-white;
+    @include gradient-text($primary-normal);
+    font-family: $font-noto-serif;
     font-size: 4rem;
     margin-bottom: 14px;
-
-    span {
-      color: $color-silver;
-    }
   }
 
-  h5 {
-    color: $color-silver;
+  h3 {
+    color: #18d4ab;
   }
 }

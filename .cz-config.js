@@ -1,6 +1,6 @@
 const typeEnums = {
-  feat: '새로운 기능 추가',
-  fix: '버그 해결 / 수정',
+  '✨ feat': '새로운 기능 추가',
+  '🐛 fix': '버그 해결 / 수정',
   docs: '도큐멘테이션 추가 또는 수정',
   style: '스타일 추가',
   refactor: '리팩토링',
@@ -22,7 +22,7 @@ const commitizenConfig = {
     name:
       `${type}:     ${' '.repeat(maxSpaceLength - type.length)}` + description,
   })),
-  skipQuestions: ['body', 'footer'],
+  skipQuestions: ['footer'],
   skipEmptyScopes: true,
 }
 

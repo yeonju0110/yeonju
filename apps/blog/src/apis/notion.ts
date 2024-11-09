@@ -36,7 +36,9 @@ export const fetchDatabase = async () => {
           'plain_text' in item.properties.Name.title[0] &&
           item.properties.Name.title[0].plain_text &&
           'multi_select' in item.properties.Tags &&
-          Array.isArray(item.properties.Tags.multi_select)
+          Array.isArray(item.properties.Tags.multi_select) &&
+          'date' in item.properties.Date &&
+          item.properties.Date.date
         ) {
           let thumbnailImage = './defaultThumbnail.png'
           if ('cover' in item && item.cover) {
@@ -54,7 +56,7 @@ export const fetchDatabase = async () => {
           return {
             id: item.id,
             title: item.properties.Name.title[0].plain_text,
-            created_time: item.created_time,
+            created_time: item.properties.Date.date.start,
             thumbnail_image: thumbnailImage,
             tags,
           }

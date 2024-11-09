@@ -2,8 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #fff;
 
-  background-color: $color-bg;
+  @include desktop {
+    background-color: #fafafa;
+  }
 
   padding: 40px 0;
 }

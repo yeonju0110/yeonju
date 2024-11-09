@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { PropsWithChildren } from 'react'
 import { Card } from '@/apis/notion'
 import Image from '@/components/Image/Image'
-import size from '@/constants/size'
 import { isLocal } from '@/libs/config'
 import { getPageCover } from '@/utils/Notion'
 import Badge from '../Badge/Badge'
@@ -30,29 +29,31 @@ const Article = ({ article }: ArticleProps) => {
   }
 
   return (
-    <Link
-      key={id}
-      href={getPageLink(id)}
-      className={styles.article}
-      style={{ width: `${size.article_width}px` }}
-    >
+    <Link key={id} href={getPageLink(id)} className={styles.article}>
       <Image
         className={styles.thumbnail}
         type="remote"
         alt="thumbnail_image"
         src={getPageCover({ id, url: thumbnailImage })}
-        width={size.article_width}
-        height={size.article_height}
+        width={200}
+        height={140}
+        // width={100}
+        // height={100}
       />
+      <div className={styles.description}>
+        <div>
+          <p className={styles.title}>{title}</p>
+          <p className={styles.date}>
+            {dayjs(createdTime).format('YYYY-MM-DD')}
+          </p>
+        </div>
 
-      <p className={styles.title}>{title}</p>
-      <p className={styles.date}>{dayjs(createdTime).format('YYYY-MM-DD')}</p>
-
-      <Badge.Container>
-        {tags.map(tag => (
-          <Badge key={tag.id} content={tag.name} />
-        ))}
-      </Badge.Container>
+        <Badge.Container>
+          {tags.map(tag => (
+            <Badge key={tag.id} content={tag.name} />
+          ))}
+        </Badge.Container>
+      </div>
     </Link>
   )
 }

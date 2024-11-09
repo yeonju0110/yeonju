@@ -41,7 +41,6 @@ export default function NotionPage({ recordMap, currentPageId }: Props) {
           />
         }
         recordMap={recordMap}
-        darkMode
         components={{
           Collection,
           Code,

@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "deploy": "touch out/.nojekyll && git add -f out/ && git commit -m 'ci: deploy to gh-pages' && cd ../../ && git subtree push --prefix apps/blog/out origin +gh-pages && gh-pages -d apps/blog/out --dotfiles",
+    "deploy": "yarn build && touch out/.nojekyll && gh-pages -d out --dotfiles",
     "lint": "next lint",
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },

@@ -23,8 +23,8 @@ const pretendard = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'The Yeonju',
-  description: '연주의 기술 블로그',
+  title: 'Yeonble',
+  description: '연블의 기술 블로그',
   icons: [{ rel: 'icon', url: Favicon.src }],
 }
 
@@ -35,7 +35,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko" className={`${notoSerif.variable} ${pretendard.variable}`}>
-      <body>
+      <body
+        style={{
+          position: 'relative',
+          backgroundColor: '#fafafa',
+          minHeight: '100vh',
+        }}
+      >
         <Header />
         {children}
         <Footer />

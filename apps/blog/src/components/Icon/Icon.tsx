@@ -8,7 +8,7 @@ export type IconProps = {
   fill?: string
 }
 
-const Icon = ({ name, size = 24, fill = '#fff' }: IconProps) => {
+const Icon = ({ name, size = 24, fill = '#959db1' }: IconProps) => {
   const CustomIcon = Icons[name]
 
   return <CustomIcon width={size} height={size} fill={fill} />

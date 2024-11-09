@@ -4,7 +4,7 @@ import { getPageCover } from '@/utils/Notion'
 export default function useNotionPage(recordMap: ExtendedRecordMap) {
   const blockEntries = Object.entries(recordMap.block)
   const pageWithCover = blockEntries.find(
-    ([, block]) => block.value.format?.page_cover
+    ([, block]) => block.value?.format?.page_cover
   )
 
   if (!pageWithCover) {

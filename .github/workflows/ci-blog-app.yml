@@ -29,18 +29,11 @@ jobs:
           touch ./apps/blog/.env
           echo "NOTION_KEY=${{ secrets.NOTION_KEY }}" >> ./apps/blog/.env
 
-      - name: Build web-app
-        working-directory: apps/blog
-        run: |
-          YARN_IGNORE_NODE=1 yarn build
-
-      - uses: fregante/setup-git-user@v2
-
       - name: Setup credentials to access private repositories
         run: |
           git config --global user.email "yjj0287@gmail.com"
           git config --global user.name "Yeonju Jo"
-          git config --global url.https://${{ secrets.PAT }}@github.com/.insteadOf https://github.com/
+          git remote set-url origin https://x-access-token:${{ secrets.PAT }}@github.com/${{ github.repository }}
 
       - name: Deploy web-app
         working-directory: apps/blog

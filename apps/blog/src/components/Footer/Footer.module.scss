@@ -3,5 +3,9 @@
   text-align: center;
   color: #c4c4c4;
 
-  transform: translateY(-100%);
+  // transform: translateY(-100%);
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
 }

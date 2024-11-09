@@ -1,25 +1,27 @@
 /** @type {import('next').NextConfig} */
 const path = require('path')
-const isBuildCommand = process.env.npm_lifecycle_event === 'build'
-const isLocal = process.env.IM === 'local'
 const repository = 'yeonju'
+const { PHASE_PRODUCTION_BUILD } = require('next/constants')
 
-const nextConfig = {
-  output: isBuildCommand ? 'export' : undefined,
-  assetPrefix: !isLocal ? `/${repository}/` : '',
-  trailingSlash: true,
-  sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
-    prependData: `@import "@/styles/abstracts/variables";`,
-  },
-  webpack(config) {
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ['@svgr/webpack'],
-    })
+module.exports = phase => {
+  const common = {
+    output: phase === PHASE_PRODUCTION_BUILD ? 'export' : undefined,
+    assetPrefix:
+      phase === PHASE_PRODUCTION_BUILD ? `/${repository}/` : undefined,
+    trailingSlash: true,
+    sassOptions: {
+      includePaths: [path.join(__dirname, 'styles')],
+      prependData: `@import "@/styles/abstracts"; @import "@/styles/utils";`,
+    },
+    webpack(config) {
+      config.module.rules.push({
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      })
 
-    return config
-  },
+      return config
+    },
+  }
+
+  return { ...common }
 }
-
-module.exports = nextConfig

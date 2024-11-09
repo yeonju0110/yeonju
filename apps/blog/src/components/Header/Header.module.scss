@@ -5,15 +5,24 @@
   top: 0;
   left: 0;
   right: 0;
+  margin: 0 auto;
 
+  background-color: #fafafa;
+  // backdrop-filter: blur(80px);
+
+  padding: 10px 20px;
+
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.inner {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  background-color: $color-bg 4d;
-  backdrop-filter: blur(20px);
-
-  padding: 10px 20px;
+  max-width: 860px;
 }
 
 .logo {
@@ -22,8 +31,9 @@
   gap: 10px;
 
   .subTitle {
-    padding-top: 8px;
     font-family: $font-noto-serif;
+    line-height: 1.7;
+    @include gradient-text($primary-normal);
   }
 }
 
